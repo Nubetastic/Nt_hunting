@@ -1,16 +1,16 @@
 A simple skinning script for RSG framework. Some setup required.
 
-    -----------------------------------------------
-				Dependencies
-    -----------------------------------------------
-	Ox_lib
-	rNotify
-	RSG, Core NPC and Inventory
+-----------------------------------------------
+Dependencies
+-----------------------------------------------
+Ox_lib
+rNotify
+RSG, Core NPC and Inventory
 
 
-    -----------------------------------------------
-				How to use
-    -----------------------------------------------
+-----------------------------------------------
+How to use
+-----------------------------------------------
 
 When near a dead animal hold G.
 The player chracter will walk to the dead animal and do a "Skinning" animation.
@@ -23,9 +23,9 @@ I couldn't figure out how to add in the skinning prompt to RSG.
 Ox_target does not target all dead animals, code to use it is still in client file.
 One animal it does not work with is the buffalo.
 
-    -----------------------------------------------
-				Setup Guide Below
-    -----------------------------------------------
+-----------------------------------------------
+Setup Guide Below
+-----------------------------------------------
 Wasn't sure how to setup files to add this into the framework tables so here is what you need to add to each part of the framework.
 Didn't want to duplicate code that was already available.
 
@@ -101,7 +101,7 @@ https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
 	
 -- Add this to [framework]\rsg-shops\Config.lua
 
-	-- Add to Products List
+-- Add to Products List
 
     ['butcher'] = {
         { name = 'h_small_pelt', amount = 0, buyPrice = string.format("%.2f", 1) },
@@ -124,10 +124,10 @@ https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
     },
 	
 
-    # The string.format will prevent price display errors such as 1.3333333
+# The string.format will prevent price display errors such as 1.3333333
 
 
-	-- Add to StoreLocations List
+-- Add to StoreLocations List
 	
     ---------------------------------
     -- butcher
@@ -216,8 +216,8 @@ https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
 	
 	
 	
-	---------------------------------
-		Special Thanks
-    ---------------------------------
-	List of animals is from Vorp Hunting, so thank you to the Vorpcore team.
+---------------------------------
+Special Thanks
+---------------------------------
+List of animals is from Vorp Hunting, so thank you to the Vorpcore team.
 	
