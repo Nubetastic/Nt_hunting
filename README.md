@@ -29,9 +29,9 @@ Setup Guide Below
 Wasn't sure how to setup files to add this into the framework tables so here is what you need to add to each part of the framework.
 Didn't want to duplicate code that was already available.
 
--- Add images in imgs folder to [framework]\rsg-inventory\html
+-- Add images in imgs folder to [framework]\rsg-inventory\htm
+
 Images used are from the icon library project for redm.
-https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
 
 
 -- Add these items below to [framework]\rsg-core\shared\items.lua
