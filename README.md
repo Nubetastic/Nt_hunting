@@ -123,8 +123,8 @@ https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
         { name = 'h_animal_trophy', amount = 0, buyPrice = string.format("%.2f", 1) }
     },
 	
-
-# The string.format will prevent price display errors such as 1.3333333
+  
+  The string.format will prevent price display errors such as 1.3333333
 
 
 -- Add to StoreLocations List
