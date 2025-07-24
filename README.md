@@ -152,7 +152,7 @@ All rewards and quantities can be modified in config.
     },
 	
 
-# The string.format will prevent price display errors such as 1.3333333
+The string.format will prevent price display errors such as 1.3333333
 
 
 -- Add to StoreLocations List
