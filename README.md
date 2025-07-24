@@ -1,37 +1,64 @@
-A simple skinning script for RSG framework. Some setup required.
+# Advanced Hunting System for RSG Framework
 
------------------------------------------------
-Dependencies
------------------------------------------------
-Ox_lib
-rNotify
-RSG, Core NPC and Inventory
+An advanced hunting and animal skinning system for RedM/RSG servers with quality-based rewards.
 
+## Dependencies
+- Ox_lib
+- RSG Core, NPC and Inventory
 
------------------------------------------------
-How to use
------------------------------------------------
+## Features
+- Automatic detection of skinning completion
+- Multiple failsafe mechanisms to ensure rewards are always given
+- Quality-based reward system (poor, good, perfect animals)
+- Automatic cleanup of skinned animals and pelts
+- Standardized notifications using ox_lib
+- Proximity checks to ensure player stays near the animal
 
-When near a dead animal hold G.
-The player chracter will walk to the dead animal and do a "Skinning" animation.
-After the animation ends the player will receive the config rewards for that animal, and the dead animal will be deleted.
+## How to use
+1. Find and kill an animal
+2. Approach the dead animal
+3. Press E to initiate skinning
+4. The system will automatically detect when skinning is complete
+5. Rewards will be distributed based on animal type and quality
+6. The animal body and pelts will be automatically removed
+
+## Quality-Based Rewards
+The system now detects animal quality and provides different amounts of meat and resources based on the quality:
+
+- **Poor Quality (0)**: Minimum amount of meat and resources
+- **Good Quality (1)**: Medium amount of meat and resources
+- **Perfect Quality (2)**: Maximum amount of meat and resources
+- **Legendary Quality (3)**: Premium amount of meat and resources
+
+### Configuration Example
+```lua
+-- Example configuration for a Deer with quality-based meat rewards
+[1110710183] = { 
+    name = "Deer", 
+    givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart" }, 
+    givenAmount = { 1, {1, 2, 3}, 1 } 
+},
+```
+
+In this example:
+- The pelt amount is always 1
+- The meat amount varies based on quality: 1 for poor (0), 2 for good (1), 3 for perfect (2), 4 for legendary (3)
+- The heart amount is always 1
 
 Animal rewards are generic to reduce inventory space used and simplify it for the player.
-All rewards and quanitity can be modified in config.
+All rewards and quantities can be modified in config.
 
-I couldn't figure out how to add in the skinning prompt to RSG.
-Ox_target does not target all dead animals, code to use it is still in client file.
-One animal it does not work with is the buffalo.
+## Setup Guide
 
------------------------------------------------
-Setup Guide Below
------------------------------------------------
-Wasn't sure how to setup files to add this into the framework tables so here is what you need to add to each part of the framework.
-Didn't want to duplicate code that was already available.
+### Installation
+1. Add this resource to your server
+2. Ensure the dependencies are installed
+3. Add the following items and configurations to your framework
 
--- Add images in imgs folder to [framework]\rsg-inventory\htm
-
-Images used are from the icon library project for redm.
+### Images
+- Add images in imgs folder to [framework]\rsg-inventory\html
+- Images used are from the icon library project for redm.
+- https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
 
 
 -- Add these items below to [framework]\rsg-core\shared\items.lua
@@ -49,13 +76,14 @@ Images used are from the icon library project for redm.
     h_reptile_skin      = { name = 'h_reptile_skin',      label = 'Reptile Skin',           weight = 100,   type = 'item', image = 'reptile_skin.png',                  unique = false, useable = false, description = 'Skin from a reptile.' },
     h_turtle_shell      = { name = 'h_turtle_shell',      label = 'Turtle Shell',           weight = 100,   type = 'item', image = 'resource_shell_turtle.png',         unique = false, useable = false, description = 'A turtle shell.' },
     h_legendary_pelt    = { name = 'h_legendary_pelt',    label = 'Legendary Animal Pelt',  weight = 5000,  type = 'item', image = 'legendary_pelt.png',                unique = false, useable = false, description = 'A pelt from a legendary animal.' },
+	h_wool              = { name = 'h_wool',              label = 'Wool',                   weight = 800,   type = 'item', image = 'wool.png',                          unique = false, useable = false, description = 'Wool.' },
     h_meat_game         = { name = 'h_meat_game',         label = 'Game Meat',              weight = 250,   type = 'item', image = 'consumable_meat_game.png',          unique = false, useable = false, description = 'Game Meat' },
     h_meat_big_game     = { name = 'h_meat_big_game',     label = 'Big Game Meat',          weight = 250,   type = 'item', image = 'consumable_meat_big_game.png',      unique = false, useable = false, description = 'Big Game Meat' },
     h_meat_small_game   = { name = 'h_meat_small_game',   label = 'Small Game Meat',        weight = 250,   type = 'item', image = 'consumable_meat_stringy.png',       unique = false, useable = false, description = 'Small Game Meat' },
     h_meat_bird         = { name = 'h_meat_bird',         label = 'Bird Meat',              weight = 250,   type = 'item', image = 'consumable_meat_plump_bird.png',    unique = false, useable = false, description = 'Bird Meat' },
     h_meat_reptile      = { name = 'h_meat_reptile',      label = 'Reptile Meat',           weight = 250,   type = 'item', image = 'consumable_meat_alligator.png',     unique = false, useable = false, description = 'Reptile Meat' },
     h_meat_legendary    = { name = 'h_meat_legendary',    label = 'Legendary Meat',         weight = 250,   type = 'item', image = 'consumable_meat_prime_beef.png',    unique = false, useable = false, description = 'Legendary Meat' },
-    h_meat_mutton       = { name = 'h_meat_mutton',       label = 'Mutton',            weight = 250,   type = 'item', image = 'consumable_meat_mutton.png',        unique = false, useable = false, description = 'Mutton Meat' },
+    h_meat_mutton       = { name = 'h_meat_mutton',       label = 'Mutton',                 weight = 250,   type = 'item', image = 'consumable_meat_mutton.png',        unique = false, useable = false, description = 'Mutton Meat' },
     h_animal_fat        = { name = 'h_animal_fat',        label = 'Animal Fat',             weight = 250,   type = 'item', image = 'resource_animal_fat.png',           unique = false, useable = false, description = 'Animal Fat' },
     h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_grizzly.png',                 unique = false, useable = false, description = 'Animal heart from a large animal.' },
     h_animal_trophy     = { name = 'h_animal_trophy',     label = 'Animal Trophy',          weight = 250,   type = 'item', image = 'resource_animal_trophy.png',        unique = false, useable = false, description = 'Various trophies from animals.' },
@@ -123,8 +151,8 @@ Images used are from the icon library project for redm.
         { name = 'h_animal_trophy', amount = 0, buyPrice = string.format("%.2f", 1) }
     },
 	
-  
-  The string.format will prevent price display errors such as 1.3333333
+
+# The string.format will prevent price display errors such as 1.3333333
 
 
 -- Add to StoreLocations List
@@ -216,8 +244,20 @@ Images used are from the icon library project for redm.
 	
 	
 	
----------------------------------
-Special Thanks
----------------------------------
-List of animals is from Vorp Hunting, so thank you to the Vorpcore team.
+## Special Thanks
+- List of animals is from Vorp Hunting, so thank you to the Vorpcore team.
+- Original script by Nubetastic
+- Quality-based reward system enhancement added in v1.1
+
+## Changelog
+### v1.1
+- Added quality-based reward system
+- Improved animal detection and skinning process
+- Added automatic cleanup of skinned animals and pelts
+- Standardized notifications using ox_lib
+- Added proximity checks to ensure player stays near the animal
+- Fixed various bugs and improved performance
+
+### v1.0
+- Initial release
 	
