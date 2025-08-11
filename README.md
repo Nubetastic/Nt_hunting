@@ -56,7 +56,7 @@ All rewards and quantities can be modified in config.
 3. Add the following items and configurations to your framework
 
 ### Images
-- Add images in imgs folder to [framework]\rsg-inventory\html
+- Add images in imgs folder to [framework]\rsg-inventory\html\images
 - Images used are from the icon library project for redm.
 - https://the-icon-library-project-redm-webshop.tebex.io/category/2917878
 
@@ -261,3 +261,4 @@ The string.format will prevent price display errors such as 1.3333333
 ### v1.0
 - Initial release
 	
+
