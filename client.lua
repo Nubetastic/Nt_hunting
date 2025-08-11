@@ -180,7 +180,7 @@ CreateThread(function()
     local wasPressed = false
     
     while true do
-        Wait(500)
+        Wait(200)
         
         -- Detect when E is pressed (not held)
         local isPressed = IsControlPressed(0, 0xCEFD9220) -- E key (correct code: 0xCEFD9220)
@@ -420,3 +420,4 @@ end)
 
 -- These detection threads are no longer needed as we're directly processing
 -- the skinned animal when EVENT_LOOT_COMPLETE is detected in the main thread
+
