@@ -50,14 +50,19 @@ AddEventHandler("rsg_hunting:giveHuntingReward", function(item, amount, entity, 
     local success = Player.Functions.AddItem(item, amount)
     
     if success then
-        -- Item was added successfully
-        TriggerClientEvent('ox_lib:notify', src, {
-            title = 'Hunting',
-            description = 'You received ' .. amount .. 'x ' .. itemLabel,
-            type = 'success',
-            position = 'top-right',
-            duration = 4000
-        })
+        if Config.InvNotify then
+            local playerId = Player.PlayerData.source
+            exports['rsg-inventory']:ItemNotify(playerId, item, amount, 'add')
+        else
+            -- Item was added successfully
+            TriggerClientEvent('ox_lib:notify', src, {
+                title = 'Hunting',
+                description = 'You received ' .. amount .. 'x ' .. itemLabel,
+                type = 'success',
+                position = 'top-right',
+                duration = 4000
+            })
+        end
     else
         -- Notify the player
         TriggerClientEvent('ox_lib:notify', src, {
