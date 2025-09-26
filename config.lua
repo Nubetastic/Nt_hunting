@@ -1,5 +1,7 @@
 Config = {}
 
+Config.InvNotify = false
+
 Config.SkinDistance = 10
 
 Config.AnimalList = {
@@ -44,6 +46,7 @@ Config.AnimalList = {
     [1007418994]  = { name = "Berkshire Pig", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_fat" }, givenAmount = { 1, {2, 2, 3}, 1, {2, 3, 4}  } },
     [1751700893]  = { name = "Peccary Pig", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_fat" }, givenAmount = { 1, {2, 2, 3}, 1, {2, 3, 4}  } },
     [556355544]   = { name = "Angus Ox", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart" }, givenAmount = { 1, {2, 2, 3}, 1 } },
+    [1110710183]  = { name = "Whitetail Deer", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_trophy" }, givenAmount = { 1, {2, 2, 3}, 1, 1 } },
 
     -- Large Game Meat
     [-1124266369] = { name = "Bear", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart", "h_animal_fat", "h_animal_trophy" }, givenAmount = { 1, {4, 4, 6}, 1, {2, 3, 4}, 1 } },
@@ -102,21 +105,17 @@ Config.AnimalList = {
     [1465438313] = { name = "Grey Squirrel", givenItem = { "squirrel_grey_c" }, givenAmount = { 1 } },
 
     -- Legendary Animals
-    [-2021043433]   = { name = "Legendary White Elk", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } },
-    [-1747620994] = { name = "Legendary Boa", givenItem = { "h_legendary_pelt", "h_meat_reptile" }, givenAmount = { 1, 5 } },
-    [674287411] = { name = "Legendary Sun Alligator", givenItem = { "h_legendary_pelt", "h_meat_reptile" }, givenAmount = { 1, 8 } },
-    [-1598866821] = { name = "Legendary Bull Alligator", givenItem = { "h_legendary_pelt", "h_meat_reptile" }, givenAmount = { 1, 8 } },
-    [-1149999295] = { name = "Legendary White Beaver", givenItem = { "h_legendary_pelt", "h_meat_small_game" }, givenAmount = { 1, 5 } },
-    [2028722809] = { name = "Legendary Giant Boar", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 7 } },
-    [-389300196] = { name = "Legendary Wakpa Boar", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 7 } },
-    [-1433814131] = { name = "Legendary Maza Cougar", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 6 } },
-    [-1307757043] = { name = "Legendary Midnight Paw Coyote", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
-    [-1189368951] = { name = "Legendary Ghost Panther", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
-    [-1392359921] = { name = "Legendary Onyx Wolf", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
-    [-551216071] = { name = "Legendary Owiza Bear", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } },
-    [-511163808] = { name = "Legendary Chalk Horn Ram", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
+    [674287411] = { name = "Legendary Gator", givenItem = { "h_legendary_pelt", "h_meat_reptile" }, givenAmount = { 1, 8 } },
+    [-511163808] = { name = "Legendary Ram", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
+    [-389300196] = { name = "Legendary Boar", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 7 } },
+    [-557149691] = { name = "Legendary Fox", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
+    [-1392359921] = { name = "Legendary Wolf", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
+    [-781967776] = { name = "Legendary Elk", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } },
+    [-1433814131] = { name = "Legendary Cougar", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 6 } },
+    [-1307757043] = { name = "Legendary Coyote", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
     [-1754211037] = { name = "Legendary Buck", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } },
-    [-915290938] = { name = "Legendary Winyan Bison", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } },
-    [-117665949] = { name = "Legendary Snowflake Moose", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } }
+    [-1149999295] = { name = "Legendary Beaver", givenItem = { "h_legendary_pelt", "h_meat_small_game" }, givenAmount = { 1, 5 } },
+    [-915290938] = { name = "Legendary Bison", givenItem = { "h_legendary_pelt", "h_meat_big_game" }, givenAmount = { 1, 8 } },
+    [-1189368951] = { name = "Legendary Panther", givenItem = { "h_legendary_pelt", "h_meat_game" }, givenAmount = { 1, 6 } }
 }
 
