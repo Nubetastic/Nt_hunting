@@ -6,7 +6,7 @@ An advanced hunting and animal skinning system for RedM/RSG servers with quality
 - Ox_lib
 - RSG Core, NPC and Inventory
 Optional
-    - rsg-Inventory Notify
+    - [rsg-Inventory Notify](https://github.com/Nubetastic/RSG-Inventory-Notify)
         A custom made export to use the rsg inventory notification instead of ox_lib for receiving items.
         In config.lua set Config.InvNotify = true, to use it
 
@@ -265,3 +265,4 @@ The string.format will prevent price display errors such as 1.3333333
 ### v1.0
 - Initial release
 	
+
