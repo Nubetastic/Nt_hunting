@@ -2,7 +2,7 @@ local RSGCore = exports['rsg-core']:GetCoreObject()
 
 
 -- Server-side script for rsg_skinning
-local logFile = "missing_animals.log"
+local logFile = (GetResourcePath(GetCurrentResourceName()) .. "/MissingAnimals.log")
 
 -- Handle hunting reward from client
 RegisterNetEvent("rsg_hunting:giveHuntingReward")
@@ -91,8 +91,8 @@ AddEventHandler("rsg_skinning:logMissingAnimal", function(pedName, ped)
     -- Log to file (if supported) or print to console
     print("[RSG_SKINNING][MISSING] " .. logMsg)
     -- Optionally, write to a file if your server supports it
-    -- local file = io.open(logFile, "a")
-    -- if file then file:write(logMsg) file:close() end
+    local file = io.open(logFile, "a")
+    if file then file:write(logMsg) file:close() end
 end)
 
 -- Event to handle player inventory changes that might indicate skinning completion

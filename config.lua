@@ -1,6 +1,6 @@
 Config = {}
 
-Config.InvNotify = false
+Config.InvNotify = true
 
 Config.SkinDistance = 10
 
@@ -18,7 +18,7 @@ Config.AnimalList = {
     [-593056309]  = { name = "Desert Iguana", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
     [-1892280447] = { name = "Alligator Small", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2}  } },
     [-2004866590] = { name = "Alligator", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2}  } },
-    [-1295720802] = { name = "Northen American Alligator", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
+    [-1295720802] = { name = "Northern American Alligator", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
     [45741642]    = { name = "Gila Monster", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
 
     -- Small Game Meat
@@ -27,7 +27,7 @@ Config.AnimalList = {
     [-1134449699] = { name = "American Muskrat", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [1458540991]  = { name = "North American Racoon", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [-541762431]  = { name = "Black-Tailed Jackrabbit", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
-    [-1414989025] = { name = "Wirginia Possum", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
+    [-1414989025] = { name = "Virginia Possum", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [-121266332]  = { name = "Striped Skunk", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [-1211566332] = { name = "Striped Skunk", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [759906147]   = { name = "North American Beaver", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
@@ -77,6 +77,8 @@ Config.AnimalList = {
     [120598262]   = { name = "Californian Condor", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [-2063183075] = { name = "Dominique Chicken", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [-2073130256] = { name = "Double-Crested Cormorant", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [1095117488] = { name = "Heron", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 1, 2}, 1 } },
+    [-564099192] = { name = "Whooping Crane", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 1, 2}, 1 } },
 
 
     -- Other
@@ -92,7 +94,7 @@ Config.AnimalList = {
     [-2037578922] = { name = "Cuban Crab", givenItem = { "crab_c" }, givenAmount = { 1 } },
     [-1763055991] = { name = "Crawfish", givenItem = { "crawfish_c" }, givenAmount = { 1 } },
     [98537260] = { name = "Crow", givenItem = { "crow_c" }, givenAmount = { 1 } },
-    [-930822792] = { name = "Frogbull", givenItem = { "frogbull_c" }, givenAmount = { 1 } },
+    [-930822792] = { name = "Bull Frog", givenItem = { "frogbull_c" }, givenAmount = { 1 } },
     [-1302821723] = { name = "Hooded Oriole", givenItem = { "oriole_c" }, givenAmount = { 1 } },
     [111281960] = { name = "Pigeon", givenItem = { "pigeon_c" }, givenAmount = { 1 } },
     [674267496] = { name = "Bat", givenItem = { "bat_c" }, givenAmount = { 1 } },
@@ -101,7 +103,7 @@ Config.AnimalList = {
     [-1028170431] = { name = "Sparrow", givenItem = { "sparrow1_c" }, givenAmount = { 1 } },
     [1502581273] = { name = "Toad", givenItem = { "toad_c" }, givenAmount = { 1 } },
     [510312109] = { name = "Red-bellied Woodpecker", givenItem = { "woodpeck01_c" }, givenAmount = { 1 } },
-    [729471181] = { name = "Pileated Woodpecker", givenItem = { "woodpeck02_c" }, givenAmount = { 1 } },
+    [729471181] = { name = "Pileate Woodpecker", givenItem = { "woodpeck02_c" }, givenAmount = { 1 } },
     [1465438313] = { name = "Grey Squirrel", givenItem = { "squirrel_grey_c" }, givenAmount = { 1 } },
 
     -- Legendary Animals

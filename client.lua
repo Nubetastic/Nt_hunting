@@ -63,7 +63,7 @@ local function giveSkinReward(entity)
     local quality = Citizen.InvokeNative(0x7BCC6087D130312A, entity) or 1
     
     local reward = Config.AnimalList[model]
-    
+    print("Reward " .. tostring(reward))
     if reward then
         
         -- Determine quality text for notification
@@ -101,6 +101,7 @@ local function giveSkinReward(entity)
             position = 'top-right',
             duration = 4000
         })
+        TriggerServerEvent('rsg_skinning:logMissingAnimal', tostring(model), entity)
     end
 end
 
@@ -198,16 +199,12 @@ CreateThread(function()
             local entities = GetGamePool('CPed')
             for _, entity in ipairs(entities) do
                 if entity ~= playerPed and DoesEntityExist(entity) and IsEntityDead(entity) then
-                    local model = GetEntityModel(entity)
-                    if Config.AnimalList[model] then
-                        local entityCoords = GetEntityCoords(entity)
-                        local distance = #(playerCoords - entityCoords)
-                        
-                        if distance < closestDistance then
-                            closestAnimal = entity
-                            closestDistance = distance
-                            animalFound = true
-                        end
+                    local entityCoords = GetEntityCoords(entity)
+                    local distance = #(playerCoords - entityCoords)
+                    if distance < closestDistance then
+                        closestAnimal = entity
+                        closestDistance = distance
+                        animalFound = true
                     end
                 end
             end
@@ -230,16 +227,12 @@ CreateThread(function()
             local entities = GetGamePool('CPed')
             for _, entity in ipairs(entities) do
                 if entity ~= playerPed and DoesEntityExist(entity) and IsEntityDead(entity) then
-                    local model = GetEntityModel(entity)
-                    if Config.AnimalList[model] then
-                        local entityCoords = GetEntityCoords(entity)
-                        local distance = #(playerCoords - entityCoords)
-                        
-                        if distance < closestDistance then
-                            closestAnimal = entity
-                            closestDistance = distance
-                            lastAnimalSkinned = entity
-                        end
+                    local entityCoords = GetEntityCoords(entity)
+                    local distance = #(playerCoords - entityCoords)
+                    if distance < closestDistance then
+                        closestAnimal = entity
+                        closestDistance = distance
+                        lastAnimalSkinned = entity
                     end
                 end
             end
