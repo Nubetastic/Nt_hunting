@@ -21,6 +21,7 @@ Config.AnimalList = {
     [-1295720802] = { name = "Northern American Alligator", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
     [45741642]    = { name = "Gila Monster", givenItem = { "h_reptile_skin", "h_meat_reptile" }, givenAmount = { 1, {1, 1, 2} } },
 
+
     -- Small Game Meat
     [-1797625440] = { name = "Armadillo", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
     [-1170118274] = { name = "American Badger", givenItem = { "h_small_pelt", "h_meat_small_game" }, givenAmount = { 1, {1, 1, 2} } },
@@ -47,6 +48,8 @@ Config.AnimalList = {
     [1751700893]  = { name = "Peccary Pig", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_fat" }, givenAmount = { 1, {2, 2, 3}, 1, {2, 3, 4}  } },
     [556355544]   = { name = "Angus Ox", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart" }, givenAmount = { 1, {2, 2, 3}, 1 } },
     [1110710183]  = { name = "Whitetail Deer", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_trophy" }, givenAmount = { 1, {2, 2, 3}, 1, 1 } },
+    [2028722809]  = { name = "Boar", givenItem = { "h_medium_pelt", "h_meat_game", "h_animal_heart", "h_animal_fat" }, givenAmount = { 1, {2, 2, 3}, 1, {2, 3, 4}  } },
+
 
     -- Large Game Meat
     [-1124266369] = { name = "Bear", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart", "h_animal_fat", "h_animal_trophy" }, givenAmount = { 1, {4, 4, 6}, 1, {2, 3, 4}, 1 } },
@@ -56,18 +59,19 @@ Config.AnimalList = {
     [-1098441944] = { name = "Moose", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart", "h_animal_trophy" }, givenAmount = { 1, {2, 2, 3}, 1, 1 } },
     [90264823]    = { name = "Cougar", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart", "h_animal_trophy" }, givenAmount = { 1, {2, 3, 5}, 1, 1 } },
     [-50684386]   = { name = "Florida Cracker Cow", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart" }, givenAmount = { 1, {2, 3, 5}, 1 } },
+    [-2021043433] = { name = "Elk", givenItem = { "h_large_pelt", "h_meat_big_game", "h_animal_heart", "h_animal_trophy" }, givenAmount = { 1, {2, 2, 3}, 1, 1 } },
 
     -- Bird
     [-1003616053] = { name = "Duck", givenItem = { "h_feather", "h_meat_bird", "h_animal_fat" }, givenAmount = { {1, 2, 3}, 1, {1, 1, 2} } },
     [1459778951]  = { name = "Eagle", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [831859211]   = { name = "Egret", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1} },
     [1104697660]  = { name = "Vulture", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
-    [-466054788]  = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
-    [-2011226991] = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
-    [-166054593]  = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [-466054788]  = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 2 } },
+    [-2011226991] = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 2 } },
+    [-166054593]  = { name = "Wild Turkey", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 2 } },
     [-164963696]  = { name = "Herring Seagull", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [-1076508705] = { name = "Roseate Spoonbill", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
-    [2023522846]  = { name = "Dominique Rooster", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [2023522846]  = { name = "Dominique Rooster", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 2 } },
     [-466687768]  = { name = "Red-Footed Booby", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [-575340245]  = { name = "Wester Raven", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [2079703102]  = { name = "Greater Prairie Chicken", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
@@ -79,6 +83,12 @@ Config.AnimalList = {
     [-2073130256] = { name = "Double-Crested Cormorant", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
     [1095117488] = { name = "Heron", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 1, 2}, 1 } },
     [-564099192] = { name = "Whooping Crane", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 1, 2}, 1 } },
+    [1746830155]  = { name = "Parakeet", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [723190474] = { name = "Canadian Goose", givenItem = { "h_feather", "h_meat_bird", "h_animal_fat" }, givenAmount = { {1, 2, 3}, 2, {1, 2, 3} } },
+    [-2145890973]  = { name = "Hawk", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [386506078] = { name = "Loon", givenItem = { "h_feather", "h_meat_bird", "h_animal_fat" }, givenAmount = { {1, 2, 3}, 1, {1, 1, 2} } },
+    [-861544272]  = { name = "Owl", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
+    [2105463796]  = { name = "Quail", givenItem = { "h_feather", "h_meat_bird" }, givenAmount = { {1, 2, 3}, 1 } },
 
 
     -- Other
