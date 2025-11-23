@@ -198,7 +198,7 @@ CreateThread(function()
             -- Find the closest dead animal
             local entities = GetGamePool('CPed')
             for _, entity in ipairs(entities) do
-                if entity ~= playerPed and DoesEntityExist(entity) and IsEntityDead(entity) then
+                if entity ~= playerPed and DoesEntityExist(entity) and IsEntityDead(entity) and GetEntityType(entity) == 1 and Citizen.InvokeNative(0xFF059E1E4C01E63C, entity) == 28 and Config.AnimalList[GetEntityModel(entity)] ~= nil then
                     local entityCoords = GetEntityCoords(entity)
                     local distance = #(playerCoords - entityCoords)
                     if distance < closestDistance then
@@ -215,193 +215,169 @@ CreateThread(function()
                 skinningStartTime = GetGameTimer()
                 lastAnimalSkinned = closestAnimal
                 
-
-            else
-                -- No dead animal found nearby
-                return
-            end
-            local closestDistance = Config.SkinDistance or 10.0
-            local playerCoords = GetEntityCoords(playerPed)
-            
-            -- Find the closest dead animal
-            local entities = GetGamePool('CPed')
-            for _, entity in ipairs(entities) do
-                if entity ~= playerPed and DoesEntityExist(entity) and IsEntityDead(entity) then
-                    local entityCoords = GetEntityCoords(entity)
-                    local distance = #(playerCoords - entityCoords)
-                    if distance < closestDistance then
-                        closestAnimal = entity
-                        closestDistance = distance
-                        lastAnimalSkinned = entity
-                    end
-                end
-            end
-            
-            -- Start a thread to listen for EVENT_LOOT_COMPLETE
-            local listenThread = CreateThread(function()
-                local startTime = GetGameTimer()
-                local timeoutDuration = 30000 -- 30 second timeout (reduced from 60s)
-                local eventDetected = false
-                local threadId = GetIdOfThisThread() -- Store the thread ID for termination
-                local lastAnimalCheck = 0
-                local animalCheckInterval = 2000 -- Check if animal is still nearby every 2 seconds
-                
-                -- Listen for events until timeout
-                while isListening and GetGameTimer() - startTime < timeoutDuration do
-                    Wait(0) -- Check every frame for events
+                -- Start a thread to listen for EVENT_LOOT_COMPLETE
+                local listenThread = CreateThread(function()
+                    local startTime = GetGameTimer()
+                    local timeoutDuration = 30000 -- 30 second timeout (reduced from 60s)
+                    local eventDetected = false
+                    local threadId = GetIdOfThisThread() -- Store the thread ID for termination
+                    local lastAnimalCheck = 0
+                    local animalCheckInterval = 2000 -- Check if animal is still nearby every 2 seconds
                     
-                    -- Check if thread should terminate early
-                    if not isListening then
-                        return
-                    end
-                    
-                    -- Periodically check if the animal is still nearby
-                    local currentTime = GetGameTimer()
-                    if currentTime - lastAnimalCheck > animalCheckInterval then
-                        lastAnimalCheck = currentTime
+                    -- Listen for events until timeout
+                    while isListening and GetGameTimer() - startTime < timeoutDuration do
+                        Wait(0) -- Check every frame for events
                         
-                        -- Check if lastAnimalSkinned still exists and is nearby
-                        if not lastAnimalSkinned or not DoesEntityExist(lastAnimalSkinned) then
-                             isListening = false
-                           
-                               return
-                        end
-                        
-                        -- Check if animal is still in range
-                        local playerCoords = GetEntityCoords(PlayerPedId())
-                        local animalCoords = GetEntityCoords(lastAnimalSkinned)
-                        local distance = #(playerCoords - animalCoords)
-                        
-                        if distance > (Config.SkinDistance or 10.0) then
-                            isListening = false
-                           
+                        -- Check if thread should terminate early
+                        if not isListening then
                             return
                         end
-                    end
-                    
-                    -- Check for EVENT_LOOT_COMPLETE event
-                    local size = GetNumberOfEvents(0)
-                    if size > 0 then
-                        for index = 0, size - 1 do
-                            local event = GetEventAtIndex(0, index)
-                            if event == `EVENT_LOOT_COMPLETE` then
-                                -- Create a buffer for event data
-                                local buffer = DataView.ArrayBuffer(24)
+                        
+                        -- Periodically check if the animal is still nearby
+                        local currentTime = GetGameTimer()
+                        if currentTime - lastAnimalCheck > animalCheckInterval then
+                            lastAnimalCheck = currentTime
+                            
+                            -- Check if lastAnimalSkinned still exists and is nearby
+                            if not lastAnimalSkinned or not DoesEntityExist(lastAnimalSkinned) then
+                                isListening = false
                                 
-                                -- Initialize the buffer with zeros
-                                buffer:SetInt32(0, 0)  -- Player
-                                buffer:SetInt32(8, 0)  -- Entity
-                                buffer:SetInt32(16, 0) -- Status
+                                return
+                            end
+                            
+                            -- Check if animal is still in range
+                            local playerCoords = GetEntityCoords(PlayerPedId())
+                            local animalCoords = GetEntityCoords(lastAnimalSkinned)
+                            local distance = #(playerCoords - animalCoords)
+                            
+                            if distance > (Config.SkinDistance or 10.0) then
+                                isListening = false
                                 
-                                -- Get event data
-                                local dataExists = Citizen.InvokeNative(0x57EC5FA4D4D6AFCA, 0, index, buffer:Buffer(), 3)
-                                
-                                if dataExists then
-                                    -- Get the player ID from the event data
-                                    local playerFromEvent = buffer:GetInt32(0)
-                                    local pedid = buffer:GetInt32(8)
-                                    local status = buffer:GetInt32(16)
+                                return
+                            end
+                        end
+                        
+                        -- Check for EVENT_LOOT_COMPLETE event
+                        local size = GetNumberOfEvents(0)
+                        if size > 0 then
+                            for index = 0, size - 1 do
+                                local event = GetEventAtIndex(0, index)
+                                if event == `EVENT_LOOT_COMPLETE` then
+                                    -- Create a buffer for event data
+                                    local buffer = DataView.ArrayBuffer(24)
                                     
-                                   
-                                    -- Check if this event is for our player and status is 1 (success)
-                                    if PlayerPedId() == playerFromEvent and status == 1 then
-                                        eventDetected = true
-                                        -- Process the skinned animal
-                                        if DoesEntityExist(pedid) then
-                                            -- Give rewards for the skinned animal
-                                            giveSkinReward(pedid)
-                                            
-                                            -- Remove the skinned animal and any dropped pelts
-                                            CreateThread(function()
-                                                Wait(500) -- Small delay to ensure skinning is complete
-                                                if DoesEntityExist(pedid) then
-                                                    DeleteEntity(pedid)
-                                                end
+                                    -- Initialize the buffer with zeros
+                                    buffer:SetInt32(0, 0)  -- Player
+                                    buffer:SetInt32(8, 0)  -- Entity
+                                    buffer:SetInt32(16, 0) -- Status
+                                    
+                                    -- Get event data
+                                    local dataExists = Citizen.InvokeNative(0x57EC5FA4D4D6AFCA, 0, index, buffer:Buffer(), 3)
+                                    
+                                    if dataExists then
+                                        -- Get the player ID from the event data
+                                        local playerFromEvent = buffer:GetInt32(0)
+                                        local pedid = buffer:GetInt32(8)
+                                        local status = buffer:GetInt32(16)
+                                        
+                                        -- Check if this event is for our player and status is 1 (success)
+                                        if PlayerPedId() == playerFromEvent and status == 1 then
+                                            eventDetected = true
+                                            -- Process the skinned animal
+                                            if DoesEntityExist(pedid) then
+                                                -- Give rewards for the skinned animal
+                                                giveSkinReward(pedid)
                                                 
-                                                -- Remove any pelts in the area
-                                                local playerCoords = GetEntityCoords(PlayerPedId())
-                                                local objects = GetGamePool('CObject')
-                                                for _, obj in ipairs(objects) do
-                                                    if DoesEntityExist(obj) then
-                                                        local objCoords = GetEntityCoords(obj)
-                                                        local distance = #(playerCoords - objCoords)
-                                                        
-                                                        if distance < 5.0 then
-                                                            -- Check if this is a pelt object
-                                                            local modelName = Citizen.InvokeNative(0x47B870F5, obj)
-                                                            if modelName and string.find(string.lower(tostring(modelName)), "pelt") then
-                                                                DeleteEntity(obj)
+                                                -- Remove the skinned animal and any dropped pelts
+                                                CreateThread(function()
+                                                    Wait(500) -- Small delay to ensure skinning is complete
+                                                    if DoesEntityExist(pedid) then
+                                                        DeleteEntity(pedid)
+                                                    end
+                                                    
+                                                    -- Remove any pelts in the area
+                                                    local playerCoords = GetEntityCoords(PlayerPedId())
+                                                    local objects = GetGamePool('CObject')
+                                                    for _, obj in ipairs(objects) do
+                                                        if DoesEntityExist(obj) then
+                                                            local objCoords = GetEntityCoords(obj)
+                                                            local distance = #(playerCoords - objCoords)
+                                                            
+                                                            if distance < 5.0 then
+                                                                -- Check if this is a pelt object
+                                                                local modelName = Citizen.InvokeNative(0x47B870F5, obj)
+                                                                if modelName and string.find(string.lower(tostring(modelName)), "pelt") then
+                                                                    DeleteEntity(obj)
+                                                                end
                                                             end
                                                         end
                                                     end
-                                                end
-                                            end)
+                                                end)
+                                                
+                                            else
+                                                print("[HUNTING] Entity " .. pedid .. " does not exist")
+                                            end
                                             
-                                        else
-                                            print("[HUNTING] Entity " .. pedid .. " does not exist")
+                                            -- Stop listening and terminate thread
+                                            isListening = false
+                                            
+                                            return -- Exit the thread immediately
                                         end
-                                        
-                                        -- Stop listening and terminate thread
-                                        isListening = false
-                                       
-          
-                                        return -- Exit the thread immediately
+                                    else
+                                        print("[HUNTING] Failed to get event data")
                                     end
-                                else
-                                    print("[HUNTING] Failed to get event data")
                                 end
                             end
                         end
+                        
+                        -- Check if player is carrying a pelt (alternative detection method)
+                        local peltEntity = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+                        if peltEntity and DoesEntityExist(peltEntity) and not eventDetected and GetGameTimer() - skinningStartTime > 5000 then
+                            -- Player is carrying a pelt and we didn't detect the event, but enough time has passed
+                            eventDetected = true
+                            
+                            -- Process the last animal we were near
+                            if lastAnimalSkinned and DoesEntityExist(lastAnimalSkinned) then
+                                giveSkinReward(lastAnimalSkinned)
+                                
+                                -- Remove the skinned animal
+                                DeleteEntity(lastAnimalSkinned)
+                                
+                            else
+                                exports.ox_lib:notify({
+                                    title = 'Hunting',
+                                    description = 'Detected skinning but could not find animal',
+                                    type = 'warning',
+                                    position = 'top-right',
+                                    duration = 4000
+                                })
+                            end
+                            
+                            -- Stop listening and terminate thread
+                            isListening = false
+                            
+                            return -- Exit the thread immediately
+                        end
                     end
                     
-                    -- Check if player is carrying a pelt (alternative detection method)
-                    local peltEntity = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
-                    if peltEntity and DoesEntityExist(peltEntity) and not eventDetected and GetGameTimer() - skinningStartTime > 5000 then
-                        -- Player is carrying a pelt and we didn't detect the event, but enough time has passed
-                        eventDetected = true
+                    -- If we reach here, the timeout has occurred
+                    if isListening then
                         
-                        -- Process the last animal we were near
-                        if lastAnimalSkinned and DoesEntityExist(lastAnimalSkinned) then
+                        -- Failsafe: If we have a lastAnimalSkinned and it's been more than 10 seconds
+                        if lastAnimalSkinned and DoesEntityExist(lastAnimalSkinned) and GetGameTimer() - skinningStartTime > 10000 then
                             giveSkinReward(lastAnimalSkinned)
-                            
-                            -- Remove the skinned animal
                             DeleteEntity(lastAnimalSkinned)
-                            
-                        else
-                            exports.ox_lib:notify({
-                                title = 'Hunting',
-                                description = 'Detected skinning but could not find animal',
-                                type = 'warning',
-                                position = 'top-right',
-                                duration = 4000
-                            })
+                        
+                        
                         end
                         
-                        -- Stop listening and terminate thread
+                        -- Ensure we clean up properly
                         isListening = false
-                       
                         
-                        return -- Exit the thread immediately
+                        
                     end
-                end
-                
-                -- If we reach here, the timeout has occurred
-                if isListening then
-                    
-                    -- Failsafe: If we have a lastAnimalSkinned and it's been more than 10 seconds
-                    if lastAnimalSkinned and DoesEntityExist(lastAnimalSkinned) and GetGameTimer() - skinningStartTime > 10000 then
-                        giveSkinReward(lastAnimalSkinned)
-                        DeleteEntity(lastAnimalSkinned)
-                    
-
-                    end
-                    
-                    -- Ensure we clean up properly
-                    isListening = false
-                   
-                    
-                end
-            end)
+                end)
+            end
         end
         
         -- Update wasPressed for the next frame
