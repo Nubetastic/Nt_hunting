@@ -183,8 +183,8 @@ CreateThread(function()
     while true do
         Wait(200)
         
-        -- Detect when E is pressed (not held)
-        local isPressed = IsControlPressed(0, 0xCEFD9220) -- E key (correct code: 0xCEFD9220)
+        -- Detect when E or R is pressed (not held)
+        local isPressed = IsControlPressed(0, 0xCEFD9220) or IsControlPressed(0, 0x4CC0E2FE) -- E or R key
         
         -- Detect the moment E is pressed (transition from not pressed to pressed)
         if isPressed and not wasPressed and not isListening then
@@ -290,7 +290,7 @@ CreateThread(function()
                                                 
                                                 -- Remove the skinned animal and any dropped pelts
                                                 CreateThread(function()
-                                                    Wait(500) -- Small delay to ensure skinning is complete
+                                                    Wait(1000) -- Small delay to ensure skinning is complete
                                                     if DoesEntityExist(pedid) then
                                                         DeleteEntity(pedid)
                                                     end
