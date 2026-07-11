@@ -6,7 +6,7 @@ author 'Nubetastic'
 lua54 'yes'
 name 'Nt_hunting'
 description 'Hunting and animal skinning system for RedM/RSG servers'
-version '1.0.1'
+version '1.0.2'
 
 shared_scripts {
     'config.lua'

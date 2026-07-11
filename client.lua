@@ -181,7 +181,7 @@ CreateThread(function()
     local wasPressed = false
     
     while true do
-        Wait(200)
+        Wait(100)
         
         -- Detect when E or R is pressed (not held)
         local isPressed = IsControlPressed(0, 0xCEFD9220) or IsControlPressed(0, 0x4CC0E2FE) -- E or R key
@@ -218,11 +218,11 @@ CreateThread(function()
                 -- Start a thread to listen for EVENT_LOOT_COMPLETE
                 local listenThread = CreateThread(function()
                     local startTime = GetGameTimer()
-                    local timeoutDuration = 30000 -- 30 second timeout (reduced from 60s)
+                    local timeoutDuration = Config.Timeout -- 10 second timeout (reduced from 30s)
                     local eventDetected = false
                     local threadId = GetIdOfThisThread() -- Store the thread ID for termination
                     local lastAnimalCheck = 0
-                    local animalCheckInterval = 2000 -- Check if animal is still nearby every 2 seconds
+                    local animalCheckInterval = 500 -- Check if animal is still nearby every 2 seconds
                     
                     -- Listen for events until timeout
                     while isListening and GetGameTimer() - startTime < timeoutDuration do

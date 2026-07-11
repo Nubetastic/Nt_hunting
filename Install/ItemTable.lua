@@ -1,0 +1,76 @@
+    -----------------------------------------------
+    -- Hunting
+    -----------------------------------------------
+
+    -- items to keep
+    h_feather           = { name = 'h_feather',           label = 'Bird Feather',           weight = 10,    type = 'item', image = 'feather.png',                       unique = false, useable = false, description = 'A feather from a bird.' },
+    h_meat_game         = { name = 'h_meat_game',         label = 'Game Meat',              weight = 250,   type = 'item', image = 'consumable_meat_game.png',          unique = false, useable = false, description = 'Game Meat' },
+    h_meat_big_game     = { name = 'h_meat_big_game',     label = 'Big Game Meat',          weight = 250,   type = 'item', image = 'consumable_meat_big_game.png',      unique = false, useable = false, description = 'Big Game Meat' },
+    h_meat_small_game   = { name = 'h_meat_small_game',   label = 'Small Game Meat',        weight = 250,   type = 'item', image = 'consumable_meat_stringy.png',       unique = false, useable = false, description = 'Small Game Meat' },
+    h_meat_bird         = { name = 'h_meat_bird',         label = 'Bird Meat',              weight = 250,   type = 'item', image = 'consumable_meat_plump_bird.png',    unique = false, useable = false, description = 'Bird Meat' },
+    h_meat_reptile      = { name = 'h_meat_reptile',      label = 'Reptile Meat',           weight = 250,   type = 'item', image = 'consumable_meat_alligator.png',     unique = false, useable = false, description = 'Reptile Meat' },
+    h_meat_mutton       = { name = 'h_meat_mutton',       label = 'Mutton',                 weight = 250,   type = 'item', image = 'consumable_meat_mutton.png',        unique = false, useable = false, description = 'Mutton Meat' },
+    h_animal_fat        = { name = 'h_animal_fat',        label = 'Animal Fat',             weight = 250,   type = 'item', image = 'resource_animal_fat.png',           unique = false, useable = false, description = 'Animal Fat' },
+    h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_grizzly.png',                 unique = false, useable = false, description = 'Animal heart from a large animal.' },
+	h_wool              = { name = 'h_wool',              label = 'Wool',                   weight = 800,   type = 'item', image = 'wool.png',                          unique = false, useable = false, description = 'Wool.' },
+    h_small_animal      = { name = 'h_small_animal',      label = 'Small Animal',           weight = 100,   type = 'item', image = 'small_animal.png',                  unique = false, useable = false, description = 'A small animal.' },
+
+
+    -- Add new items below here
+    -- Updated existing items with new images
+    h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_animal.png',                unique = false, useable = false, description = 'Animal heart from a large animal.' },
+	h_wool              = { name = 'h_wool',              label = 'Wool',                   weight = 800,   type = 'item', image = 'resource_wool.png',               unique = false, useable = false, description = 'Wool.' },
+
+    -- New animal parts
+    h_antler_buck       = { name = 'h_antler_buck',       label = 'Buck Antler',            weight = 250,   type = 'item', image = 'resource_antler_buck.png',        unique = false, useable = false, description = 'An antler from a buck.' },
+    h_antler_elk        = { name = 'h_antler_elk',        label = 'Elk Antler',             weight = 250,   type = 'item', image = 'resource_antler_elk.png',         unique = false, useable = false, description = 'An antler from an elk.' },
+    h_antler_moose      = { name = 'h_antler_moose',      label = 'Moose Antler',           weight = 250,   type = 'item', image = 'resource_antler_moose.png',       unique = false, useable = false, description = 'An antler from a moose.' },
+    h_claw_animal       = { name = 'h_claw_animal',       label = 'Animal Claw',            weight = 250,   type = 'item', image = 'resource_claw_animal.png',        unique = false, useable = false, description = 'A claw from an animal.' },
+    h_hide_cow          = { name = 'h_hide_cow',          label = 'Cow Hide',               weight = 3000,  type = 'item', image = 'resource_hide_cow.png',           unique = false, useable = false, description = 'A hide from a cow or bull.' },
+    h_horn_animal       = { name = 'h_horn_animal',       label = 'Animal Horn',            weight = 250,   type = 'item', image = 'resource_horn_animal.png',        unique = false, useable = false, description = 'A horn from an animal.' },
+    h_tusk_boar         = { name = 'h_tusk_boar',         label = 'Boar Tusk',              weight = 250,   type = 'item', image = 'resource_tusk_boar.png',          unique = false, useable = false, description = 'A tusk from a boar.' },
+
+    -- New leather and pelt materials
+    h_pelt_badger       = { name = 'h_pelt_badger',       label = 'Badger Pelt',            weight = 800,   type = 'item', image = 'resource_pelt_badger.png',        unique = false, useable = false, description = 'A pelt from a badger.' },
+    h_pelt_beaver       = { name = 'h_pelt_beaver',       label = 'Beaver Pelt',            weight = 800,   type = 'item', image = 'resource_pelt_beaver.png',        unique = false, useable = false, description = 'A pelt from a beaver.' },
+    h_pelt_beaver_legendary = { name = 'h_pelt_beaver_legendary', label = 'Legendary Beaver Pelt', weight = 5000, type = 'item', image = 'resource_pelt_beaver_legendary.png', unique = false, useable = false, description = 'A pelt from a legendary beaver.' },
+    h_pelt_coyote       = { name = 'h_pelt_coyote',       label = 'Coyote Pelt',            weight = 800,   type = 'item', image = 'resource_pelt_coyote.png',        unique = false, useable = false, description = 'A pelt from a coyote.' },
+    h_pelt_coyote_legendary = { name = 'h_pelt_coyote_legendary', label = 'Legendary Coyote Pelt', weight = 5000, type = 'item', image = 'resource_pelt_coyote_legendary.png', unique = false, useable = false, description = 'A pelt from a legendary coyote.' },
+    h_pelt_fox          = { name = 'h_pelt_fox',          label = 'Fox Pelt',               weight = 800,   type = 'item', image = 'resource_pelt_fox.png',           unique = false, useable = false, description = 'A pelt from a fox.' },
+    h_pelt_fox_legendary = { name = 'h_pelt_fox_legendary', label = 'Legendary Fox Pelt',   weight = 5000,  type = 'item', image = 'resource_pelt_fox_legendary.png', unique = false, useable = false, description = 'A pelt from a legendary fox.' },
+    h_pelt_muskrat      = { name = 'h_pelt_muskrat',      label = 'Muskrat Pelt',           weight = 800,   type = 'item', image = 'resource_pelt_muskrat.png',       unique = false, useable = false, description = 'A pelt from a muskrat.' },
+    h_pelt_opossum      = { name = 'h_pelt_opossum',      label = 'Opossum Pelt',           weight = 800,   type = 'item', image = 'resource_pelt_opossum.png',       unique = false, useable = false, description = 'A pelt from an opossum.' },
+    h_pelt_rabbit       = { name = 'h_pelt_rabbit',       label = 'Rabbit Pelt',            weight = 800,   type = 'item', image = 'resource_pelt_rabbit.png',        unique = false, useable = false, description = 'A pelt from a rabbit.' },
+    h_pelt_raccoon      = { name = 'h_pelt_raccoon',      label = 'Raccoon Pelt',           weight = 800,   type = 'item', image = 'resource_pelt_raccoon.png',       unique = false, useable = false, description = 'A pelt from a raccoon.' },
+    h_pelt_skunk        = { name = 'h_pelt_skunk',        label = 'Skunk Pelt',             weight = 800,   type = 'item', image = 'resource_pelt_skunk.png',         unique = false, useable = false, description = 'A pelt from a skunk.' },
+    h_pelt_wolf         = { name = 'h_pelt_wolf',         label = 'Wolf Pelt',              weight = 3000,  type = 'item', image = 'resource_pelt_wolf.png',          unique = false, useable = false, description = 'A pelt from a wolf.' },
+    h_pelt_wolf_legendary = { name = 'h_pelt_wolf_legendary', label = 'Legendary Wolf Pelt', weight = 5000, type = 'item', image = 'resource_pelt_wolf_legendary.png', unique = false, useable = false, description = 'A pelt from a legendary wolf.' },
+
+    -- New skins
+    h_reptile_skin      = { name = 'h_reptile_skin',      label = 'Reptile Skin',           weight = 100,   type = 'item', image = 'reptile_skin.png',                  unique = false, useable = false, description = 'Skin from a reptile.' },
+    h_skin_alligator    = { name = 'h_skin_alligator',    label = 'Alligator Skin',         weight = 3000,  type = 'item', image = 'resource_skin_alligator.png',     unique = false, useable = false, description = 'A skin from an alligator.' },
+    h_skin_alligator_legendary = { name = 'h_skin_alligator_legendary', label = 'Legendary Alligator Skin', weight = 5000, type = 'item', image = 'resource_skin_alligator_legendary.png', unique = false, useable = false, description = 'A skin from a legendary alligator.' },
+    h_skin_armadillo    = { name = 'h_skin_armadillo',    label = 'Armadillo Skin',         weight = 800,   type = 'item', image = 'resource_skin_armadillo.png',     unique = false, useable = false, description = 'A skin from an armadillo.' },
+    h_skin_bear         = { name = 'h_skin_bear',         label = 'Bear Skin',              weight = 3000,  type = 'item', image = 'resource_skin_bear_grizzly.png',  unique = false, useable = false, description = 'A skin from a bear.' },
+    h_skin_bear_grizzly_legendary = { name = 'h_skin_bear_grizzly_legendary', label = 'Legendary Grizzly Bear Skin', weight = 5000, type = 'item', image = 'resource_skin_bear_grizzly_legendary.png', unique = false, useable = false, description = 'A skin from a legendary grizzly bear.' },
+    h_skin_buck       = { name = 'h_skin_buck',       label = 'Buck Skin',             weight = 1500,  type = 'item', image = 'resource_skin_buck.png',          unique = false, useable = false, description = 'A skin from a buck.' },
+    h_skin_buck_legendary = { name = 'h_skin_buck_legendary', label = 'Legendary Buck Skin', weight = 5000, type = 'item', image = 'resource_skin_buck_legendary.png', unique = false, useable = false, description = 'A skin from a legendary buck.' },
+    h_skin_buffalo      = { name = 'h_skin_buffalo',      label = 'Buffalo Skin',           weight = 3000,  type = 'item', image = 'resource_skin_buffalo.png',       unique = false, useable = false, description = 'A skin from a buffalo.' },
+    h_skin_buffalo_legendary = { name = 'h_skin_buffalo_legendary', label = 'Legendary Buffalo Skin', weight = 5000, type = 'item', image = 'resource_skin_buffalo_legendary.png', unique = false, useable = false, description = 'A skin from a legendary buffalo.' },
+    h_skin_cougar       = { name = 'h_skin_cougar',       label = 'Cougar Skin',            weight = 3000,  type = 'item', image = 'resource_skin_cougar.png',        unique = false, useable = false, description = 'A skin from a cougar.' },
+    h_skin_cougar_legendary = { name = 'h_skin_cougar_legendary', label = 'Legendary Cougar Skin', weight = 5000, type = 'item', image = 'resource_skin_cougar_legendary.png', unique = false, useable = false, description = 'A skin from a legendary cougar.' },
+    h_skin_deer         = { name = 'h_skin_deer',         label = 'Deer Skin',              weight = 1500,  type = 'item', image = 'resource_skin_deer.png',          unique = false, useable = false, description = 'A skin from a deer.' },
+    h_skin_iguana       = { name = 'h_skin_iguana',       label = 'Iguana Skin',            weight = 800,   type = 'item', image = 'resource_skin_iguana_green.png', unique = false, useable = false, description = 'A skin from an iguana.' },
+    h_skin_elk          = { name = 'h_skin_elk',          label = 'Elk Skin',               weight = 3000,  type = 'item', image = 'resource_skin_elk.png',           unique = false, useable = false, description = 'A skin from an elk.' },
+    h_skin_elk_legendary = { name = 'h_skin_elk_legendary', label = 'Legendary Elk Skin',   weight = 5000, type = 'item', image = 'resource_skin_elk_legendary.png',  unique = false, useable = false, description = 'A skin from a legendary elk.' },
+    h_skin_goat         = { name = 'h_skin_goat',         label = 'Goat Skin',              weight = 1500,  type = 'item', image = 'resource_skin_goat.png',          unique = false, useable = false, description = 'A skin from a goat.' },
+    h_skin_javelina_boar = { name = 'h_skin_javelina_boar', label = 'Javelina Skin',       weight = 1500,  type = 'item', image = 'resource_skin_javelina_boar.png', unique = false, useable = false, description = 'A skin from a javelina boar.' },
+    h_skin_javelina_boar_legendary = { name = 'h_skin_javelina_boar_legendary', label = 'Legendary Javelina Skin', weight = 5000, type = 'item', image = 'resource_skin_javelina_boar_legendary.png', unique = false, useable = false, description = 'A skin from a legendary javelina boar.' },
+    h_skin_moose       = { name = 'h_skin_moose',        label = 'Moose Skin',             weight = 3000,  type = 'item', image = 'resource_skin_moose.png',         unique = false, useable = false, description = 'A skin from a moose.' },
+    h_skin_moose_legendary = { name = 'h_skin_moose_legendary', label = 'Legendary Moose Skin', weight = 5000, type = 'item', image = 'resource_skin_moose_legendary.png', unique = false, useable = false, description = 'A skin from a legendary moose.' },
+    h_skin_panther      = { name = 'h_skin_panther',      label = 'Panther Skin',           weight = 3000,  type = 'item', image = 'resource_skin_panther.png',       unique = false, useable = false, description = 'A skin from a panther.' },
+    h_skin_panther_legendary = { name = 'h_skin_panther_legendary', label = 'Legendary Panther Skin', weight = 5000, type = 'item', image = 'resource_skin_panther_legendary.png', unique = false, useable = false, description = 'A skin from a legendary panther.' },
+    h_skin_pig          = { name = 'h_skin_pig',          label = 'Pig Skin',               weight = 1500,  type = 'item', image = 'resource_skin_pig.png',           unique = false, useable = false, description = 'A skin from a pig.' },
+    h_skin_ram          = { name = 'h_skin_ram',          label = 'Ram Skin',               weight = 1500,  type = 'item', image = 'resource_skin_ram.png',           unique = false, useable = false, description = 'A skin from a ram.' },
+    h_skin_ram_legendary = { name = 'h_skin_ram_legendary', label = 'Legendary Ram Skin',   weight = 5000, type = 'item', image = 'resource_skin_ram_legendary.png',  unique = false, useable = false, description = 'A skin from a legendary ram.' },
+    h_snake_skin         = { name = 'h_snake_skin',       label = 'Snake Skin',             weight = 100,   type = 'item', image = 'resource_snake_skin_boa.png',     unique = false, useable = false, description = 'A snake skin.' },
