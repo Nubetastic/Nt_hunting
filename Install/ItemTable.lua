@@ -2,23 +2,21 @@
     -- Hunting
     -----------------------------------------------
 
-    -- items to keep
+    -- Meats and other stuff
     h_feather           = { name = 'h_feather',           label = 'Bird Feather',           weight = 10,    type = 'item', image = 'feather.png',                       unique = false, useable = false, description = 'A feather from a bird.' },
-    h_meat_game         = { name = 'h_meat_game',         label = 'Game Meat',              weight = 250,   type = 'item', image = 'consumable_meat_game.png',          unique = false, useable = false, description = 'Game Meat' },
-    h_meat_big_game     = { name = 'h_meat_big_game',     label = 'Big Game Meat',          weight = 250,   type = 'item', image = 'consumable_meat_big_game.png',      unique = false, useable = false, description = 'Big Game Meat' },
-    h_meat_small_game   = { name = 'h_meat_small_game',   label = 'Small Game Meat',        weight = 250,   type = 'item', image = 'consumable_meat_stringy.png',       unique = false, useable = false, description = 'Small Game Meat' },
-    h_meat_bird         = { name = 'h_meat_bird',         label = 'Bird Meat',              weight = 250,   type = 'item', image = 'consumable_meat_plump_bird.png',    unique = false, useable = false, description = 'Bird Meat' },
-    h_meat_reptile      = { name = 'h_meat_reptile',      label = 'Reptile Meat',           weight = 250,   type = 'item', image = 'consumable_meat_alligator.png',     unique = false, useable = false, description = 'Reptile Meat' },
-    h_meat_mutton       = { name = 'h_meat_mutton',       label = 'Mutton',                 weight = 250,   type = 'item', image = 'consumable_meat_mutton.png',        unique = false, useable = false, description = 'Mutton Meat' },
-    h_animal_fat        = { name = 'h_animal_fat',        label = 'Animal Fat',             weight = 250,   type = 'item', image = 'resource_animal_fat.png',           unique = false, useable = false, description = 'Animal Fat' },
-    h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_grizzly.png',                 unique = false, useable = false, description = 'Animal heart from a large animal.' },
-	h_wool              = { name = 'h_wool',              label = 'Wool',                   weight = 800,   type = 'item', image = 'wool.png',                          unique = false, useable = false, description = 'Wool.' },
-    h_small_animal      = { name = 'h_small_animal',      label = 'Small Animal',           weight = 100,   type = 'item', image = 'small_animal.png',                  unique = false, useable = false, description = 'A small animal.' },
+    h_meat_game         = { name = 'h_meat_game',         label = 'Game Meat',              weight = 250,   type = 'item', image = 'consumable_meat_game.png',          unique = false, useable = false, decay = 300, description = 'Game Meat' },
+    h_meat_big_game     = { name = 'h_meat_big_game',     label = 'Big Game Meat',          weight = 250,   type = 'item', image = 'consumable_meat_big_game.png',      unique = false, useable = false, decay = 300, description = 'Big Game Meat' },
+    h_meat_small_game   = { name = 'h_meat_small_game',   label = 'Small Game Meat',        weight = 250,   type = 'item', image = 'consumable_meat_stringy.png',       unique = false, useable = false, decay = 300, description = 'Small Game Meat' },
+    h_meat_bird         = { name = 'h_meat_bird',         label = 'Bird Meat',              weight = 250,   type = 'item', image = 'consumable_meat_plump_bird.png',    unique = false, useable = false, decay = 300, description = 'Bird Meat' },
+    h_meat_reptile      = { name = 'h_meat_reptile',      label = 'Reptile Meat',           weight = 250,   type = 'item', image = 'consumable_meat_alligator.png',     unique = false, useable = false, decay = 300, description = 'Reptile Meat' },
+    h_meat_mutton       = { name = 'h_meat_mutton',       label = 'Mutton',                 weight = 250,   type = 'item', image = 'consumable_meat_mutton.png',        unique = false, useable = false, decay = 300, description = 'Mutton Meat' },
+    h_animal_fat        = { name = 'h_animal_fat',        label = 'Animal Fat',             weight = 250,   type = 'item', image = 'resource_animal_fat.png',           unique = false, useable = false, decay = 1000, description = 'Animal Fat' },
+    h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_grizzly.png',                 unique = false, useable = false, decay = 300, description = 'Animal heart from a large animal.' },
+    h_small_animal      = { name = 'h_small_animal',      label = 'Small Animal',           weight = 100,   type = 'item', image = 'small_animal.png',                  unique = false, useable = false, decay = 1000, description = 'A small animal.' },
 
 
-    -- Add new items below here
+    -- Pelts, hides and skins
     -- Updated existing items with new images
-    h_animal_heart      = { name = 'h_animal_heart',      label = 'Animal Heart',           weight = 250,   type = 'item', image = 'heart_animal.png',                unique = false, useable = false, description = 'Animal heart from a large animal.' },
 	h_wool              = { name = 'h_wool',              label = 'Wool',                   weight = 800,   type = 'item', image = 'resource_wool.png',               unique = false, useable = false, description = 'Wool.' },
 
     -- New animal parts
